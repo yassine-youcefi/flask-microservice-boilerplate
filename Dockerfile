@@ -29,9 +29,15 @@ RUN adduser \
 # into this layer.
 COPY requirements.txt /code/ 
 
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
     python -m pip install -r requirements.txt
+
+COPY . /code/
 
 # Switch to the non-privileged user to run the application.
 USER appuser

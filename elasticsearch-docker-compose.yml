@@ -2,6 +2,7 @@ version: '3'
 services:
   
   elasticsearch:
+    container_name: elasticsearch 
     image: elasticsearch:7.0.0
     ports:
       - 9200:9200
@@ -11,8 +12,11 @@ services:
       - xpack.security.enabled=false
     volumes:
       - data:/usr/share/elasticsearch/data
+    networks:
+      - fmsb-network
 
   kibana:
+    container_name: kibana
     image: kibana:7.0.0
     ports:
       - 5601:5601
