@@ -53,7 +53,7 @@ Body : json
 ```
 
 ### 2- insert data to the elasticsearch:
-POST  http://localhost:9200/property/prop/
+POST  http://localhost:9200/property/prop/ 
 
 Body : json
 ```json 
