@@ -1,0 +1,4 @@
+Flask==2.3.3
+elasticsearch-dsl==7.0.0
+elasticsearch==7.0.0
+connexion

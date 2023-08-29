@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  flask:
+    build:
+      context: .
+    ports:
+      - 5000:5000
+    env_file: .env
+    networks:
+      - fmsb-network
+
+networks:
+  default:
+    driver: bridge
+  fmsb-network:
+    external: true
+
+
+volumes:
+  data:
